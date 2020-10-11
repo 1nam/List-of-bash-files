@@ -1,6 +1,7 @@
 #!/bin/bash
 # 1nam  make a telepromter for making videos.
 # the big text only works in kde Konsle terminal download from software manager.
+# terminal window full screen for best results.
 # adjust sleep as needed for your needs simply change number of seconds.
 
 Welcome="This is Station Reporting live from name of city, state I'm your name."
