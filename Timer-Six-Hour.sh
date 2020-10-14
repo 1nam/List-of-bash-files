@@ -1,6 +1,7 @@
 #!/bin/bash
 # 1nam testing and making a 6 hour timer.
-
+# change the 21660 seconds to fit your needs.
+# example: one hour has 3600 seconds.
 
 for i in {1..21600} # there are 21600 seconds in six hours.
 do
