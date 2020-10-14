@@ -21,6 +21,7 @@ fi
 if [[ $pass == "123" ]]
 then
 echo "your logged in as $name." 
+sleep 2
 elif [[ $pass != "123" ]]
 then
 echo "Email of this session sent to Admin."
