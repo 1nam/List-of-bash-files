@@ -21,7 +21,7 @@ echo "wett the rim of the glass with water. Dip the rim of the glass in sugar."
 echo ""
 sleep 5
 echo ""
-echo "Add 2 and 1/2 table spoons of sugar. pour steeped water in to Glass Mix"
+echo "Add 2 and 1/2 table spoons of sugar. pour steeped water in to Glass with one tea bag and Mix"
 echo ""
 sleep 5
 echo ""
