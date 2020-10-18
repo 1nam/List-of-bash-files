@@ -5,6 +5,8 @@
 # Simple Streaming Radio using mplayer and terminal.
 # Copy and Paste Streaming Radio URL.
 # Get Stream URL here: http://dir.xiph.org/genres/Null
+# on the website press play then copy the http address thats your URL
+# just in case your new and did not know how to get a stream url.
 # Listen to Radio y for yes n for no
 
 while true
