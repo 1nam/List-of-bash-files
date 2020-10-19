@@ -1,12 +1,13 @@
 #!/bin/bash
 #1nam   make a webpage and create the html file to launch it.
-
-read -p "Background Color?: " color
-read -p "Text Color?: " Tcolor
-read -p "name of website?: " site_name
-read -p "your welcome header?: " head1
-read -p "Write a Paragraph: " paragraph
-
+# the html file will be placed were ever this script is executed,
+                          #  EXAMPLES --------[--------------------------------]
+read -p "Background Color?: " color             # black
+read -p "Text Color?: " Tcolor                  # blue
+read -p "name of website?: " site_name          # my_cool_site
+read -p "your welcome header?: " head1          # Welcome to my site
+read -p "Write a Paragraph: " paragraph         # thanks for visiting my site
+                           #  EXAMPLES --------[--------------------------------]
 echo "<!DOCTYPE html>
 <html>
   <head>
@@ -25,4 +26,4 @@ background-color: $color
   <p>$paragraph</p>
   </font> 
   </body>
-</html>" > $site_name.html
+</html>" > $site_name.html   # makes html script the you named
