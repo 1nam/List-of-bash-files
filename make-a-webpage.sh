@@ -26,4 +26,4 @@ background-color: $color
   <p>$paragraph</p>
   </font> 
   </body>
-</html>" > $site_name.html   # makes html script the you named
+</html>" > $site_name.html   # makes html script that you named
