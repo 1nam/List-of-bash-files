@@ -5,6 +5,9 @@
 # on code im writing so i just run this script
 # i made using xdotool Just press x whenever i need to switch workspaces 
 # i have a 10 second sleep timer set. just adjust it to your needs.
+# when x is pressed the workspace switched 10 seconds,
+# then switches back to the original workspace.
+# pressing anything but x will exit the script,
 
 while true
 do
