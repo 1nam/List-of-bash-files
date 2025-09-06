@@ -48,6 +48,8 @@ MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNooWMMMMMMMMMMM
 }
 jam_out
 
+sleep 3
+
 # Check for mpv
 command -v mpv >/dev/null 2>&1 || {
     echo >&2 "mpv is not installed. Please run: sudo apt install mpv"
