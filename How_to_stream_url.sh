@@ -1,45 +1,43 @@
 #!/bin/bash
 
-# before using this script install:  sudo apt install mpv curl
-# the script depends on mpv to play streams.
-#these streams are free to listen to here--> https://somafm.com/
-# this script plays the streams in terminal with a menu
-# option to pick a stream to play
-# also shows current station playing
-# option to choose stream url, stop, exit
+# Required: sudo apt install mpv curl
+# This script plays SomaFM streams from the terminal with a menu.
 
-# Soma FM Channels
-declare -A CHANNELS
-CHANNELS=(
+# Check for mpv
+command -v mpv >/dev/null 2>&1 || {
+    echo >&2 "mpv is not installed. Please run: sudo apt install mpv"
+    exit 1
+}
+
+# Soma FM Channels and Stream URLs
+declare -A CHANNELS=(
     ["1"]="Groove Salad - Chillout and downtempo"
     ["2"]="Drone Zone - Ambient and drone music"
-    ["3"]="SomaFM - Indie Pop Rocks"
-    ["4"]="Lush - Chillout and downtempo"
+    ["3"]="Indie Pop Rocks - Indie and alternative"
+    ["4"]="Lush - Sensual and mellow vocals"
 )
 
-# Corresponding Stream URLs
-STREAM_URLS=(
-    "http://ice1.somafm.com/groovesalad-128-mp3"
-    "http://ice1.somafm.com/dronezone-128-mp3"
-    "http://ice1.somafm.com/indiepop-128-mp3"
-    "http://ice1.somafm.com/lush-128-mp3"
+declare -A STREAM_URLS=(
+    ["1"]="http://ice1.somafm.com/groovesalad-128-mp3"
+    ["2"]="http://ice1.somafm.com/dronezone-128-mp3"
+    ["3"]="http://ice1.somafm.com/indiepop-128-mp3"
+    ["4"]="http://ice1.somafm.com/lush-128-mp3"
 )
 
-# Function to play the stream
+# Function to play stream
 play_stream() {
-    echo "Playing ${CHANNELS[$1]}..."
-    mpv "${STREAM_URLS[$1]}" &
+    stop_stream  # Stop any existing stream
+    echo "Playing: ${CHANNELS[$1]}"
+    mpv "${STREAM_URLS[$1]}" --no-video &
     STREAM_PID=$!
 }
 
-# Function to stop the stream
+# Function to stop stream
 stop_stream() {
-    if [ -n "$STREAM_PID" ]; then
-        echo "Stopping the stream..."
+    if [ -n "$STREAM_PID" ] && kill -0 "$STREAM_PID" 2>/dev/null; then
+        echo "Stopping current stream..."
         kill "$STREAM_PID"
         unset STREAM_PID
-    else
-        echo "No stream is currently playing."
     fi
 }
 
@@ -48,50 +46,45 @@ stream_info() {
     echo "Available Channels:"
     for key in "${!CHANNELS[@]}"; do
         echo "$key. ${CHANNELS[$key]}"
+        echo "   URL: ${STREAM_URLS[$key]}"
     done
 }
 
 # Main menu loop
 while true; do
+    clear
     echo "=============================="
-    echo "       Soma FM Menu          "
+    echo "       Soma FM Menu           "
     echo "=============================="
     echo "1. Play Groove Salad"
     echo "2. Play Drone Zone"
     echo "3. Play Indie Pop Rocks"
     echo "4. Play Lush"
     echo "5. Stop Stream"
-    echo "6. Stream Info"
+    echo "6. Show Stream Info"
     echo "7. Exit"
     echo "=============================="
     read -p "Choose an option [1-7]: " option
 
-    case $option in
-        1)
-            play_stream 0
-            ;;
-        2)
-            play_stream 1
-            ;;
-        3)
-            play_stream 2
-            ;;
-        4)
-            play_stream 3
+    case "$option" in
+        1|2|3|4)
+            play_stream "$option"
             ;;
         5)
             stop_stream
             ;;
         6)
             stream_info
+            read -p "Press Enter to return to menu..." pause
             ;;
         7)
             stop_stream
-            echo "Exiting..."
+            echo "Exiting... Goodbye!"
             exit 0
             ;;
         *)
             echo "Invalid option. Please try again."
+            sleep 1
             ;;
     esac
 done
