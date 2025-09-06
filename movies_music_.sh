@@ -1,5 +1,8 @@
 #!/bin/bash
 # mplayer must be installed to use this script
+# optional art install lolcat adds color
+# to use with lolcat just pipe it
+# example of pipe:   ./movies_music_.sh | lolcat
 # if yes for movie sets path to your video directory 
 # if no movie sets path to your music directory
 # simply add your codec
