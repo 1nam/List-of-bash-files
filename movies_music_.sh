@@ -6,17 +6,41 @@
 # name of song or movie
 # movies bring up mplayer video
 # songs play in terminal
+# Function to display error messages
+display_error() {
+    echo -e "\e[31m$1\e[0m"  # Red text for error messages
+    sleep 3  # Pause to allow the user to read the error message
+}
 
+# Dragon ASCII Art
+dragon_art() {
+    echo "          __====-_  _-====__"
+    echo "      _--^^^#####//      \\#####^^^--_"
+    echo "   _-^##########// (    ) \\##########^-_"
+    echo "  -############//  |\^^/|  \\############-"
+    echo " -#############//   (@::@)   \\#############-"
+    echo " -#############((      \\//      ))#############-"
+    echo " -#############\\     (oo)     //#############-"
+    echo "  -#############\\    / '' \\    //#############-"
+    echo "   -#############\\  /      \\  //#############-"
+    echo "    -#############\\/        \\//#############-"
+    echo "      -###########\\          //############-"
+    echo "        -##########\\        //##########-"
+    echo "          -##########\\      //########-"
+    echo "            -##########\\    //######-"
+    echo "              -##########\\  //####-"
+    echo "                -##########\\/##-"
+    echo "                  -##########-"
+}
+
+# Display the dragon art
+dragon_art
+
+echo -e "\e[32mWelcome to the Movie and Song Player!\e[0m"  # Green welcome message
 echo "Supported codecs: mp3, mp4, ogg"
 
 # Prompt for codec input
 read -p "Enter codec: " x
-
-# Function to display error messages
-display_error() {
-    echo "$1"
-    sleep 3  # Pause to allow the user to read the error message
-}
 
 # Function to play a movie
 play_movie() {
@@ -56,3 +80,4 @@ fi
 
 # Clear the screen after the script ends
 clear
+
