@@ -1,4 +1,11 @@
 #!/bin/bash
+# changes
+
+# Use \r to return to the start of the line.
+
+# Make the output always the same width (pad with spaces if needed).
+
+# Don’t use echo with automatic newline; use printf.
 
 seconds=21600  # 6 hours
 
