@@ -3,7 +3,7 @@
 
 # Peek moves forward then back, instead of forward twice.
 
-# ingle read -p makes interaction smoother.
+# single read -p makes interaction smoother.
 
 Clean and readable.
 while true; do
