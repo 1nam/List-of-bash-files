@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Folder blinks continuously at the same speed, independent of typing.
+
+# File names type out letter by letter.
+
+# Hostname/user + progress counter included.
+
 # Wait for user to start
 read -p "Press Enter to start listing files..."
 clear
