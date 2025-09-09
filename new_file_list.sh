@@ -1,11 +1,4 @@
 #!/bin/bash
-# ✅ Progress counter [current/total] so you know where you are.
-
-# ✅ Green color for readability.
-
-# ✅ Cleaner spacing and prompts.
-
-# ✅ Preserves the 1.5-second delay for “teleprompter effect.”
 
 # Wait for user to start
 read -p "Press Enter to start listing files..."
@@ -15,12 +8,29 @@ clear
 total_files=$(ls -1 | wc -l)
 counter=0
 
+# Function to type text with blinking folder
+type_with_blink() {
+    local text="$1"
+    local interval=0.05  # typing speed
+    local chars=${#text}
+
+    for ((i=0; i<chars; i++)); do
+        # Use integer modulo for blink effect
+        if (( (i % 6) < 3 )); then  # approximate 0.3s blink
+            printf "\r📁 %s" "${text:0:i+1}"
+        else
+            printf "\r   %s" "${text:0:i+1}"
+        fi
+        sleep $interval
+    done
+    echo ""
+}
+
 # Loop through files
 for file in *; do
     ((counter++))
-    # Print with hostname, user, file number, and color
-    echo -e "\e[32m$HOSTNAME $USER [$counter/$total_files]:\e[0m $file"
-    sleep 1.5
+    prefix="$(echo -e "\e[32m$HOSTNAME $USER [$counter/$total_files]:\e[0m ")"
+    type_with_blink "$prefix$file"
 done
 
 # Exit prompt
