@@ -28,7 +28,7 @@ logs_dir="$script_dir/logs"
 mkdir -p "$logs_dir"
 
 # GitHub JSON URL
-json_url="https://tinyurl.com/274kslbs"
+json_url="https://raw.githubusercontent.com/1nam/fetch_quotes/refs/heads/main/websites.json"
 
 # Fetch JSON from GitHub
 echo -e "${BLUE}Fetching website list from GitHub...${NC}"
