@@ -1,4 +1,6 @@
 #!/bin/bash
+#  TAKE WEBCAM PICTURE INSTANT AND OPEN IN GIMP
+#  EASY TO USE
 # Hot Shot – Zenity GUI version (fully silent terminal)
 # Saves snapshots in ./hot_stuff folder same directory as script.
 # opens gimp with the photo ready to edit and add fx.
