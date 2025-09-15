@@ -1,5 +1,7 @@
 #!/bin/bash
-
+# ping website script fetches the websites from a list of websites on a json file on github,
+# then  creates a json log in a folder in the same directory of script
+# and offers to review log reading the json file using jq displayed on terminal
 # Requirements: jq, curl, ping, traceroute
 # Colors
 RED='\033[0;31m'
