@@ -1,5 +1,6 @@
 #!/bin/bash
 # easy to fetch your json file and make sure its valid.
+# easy copy paste your raw url script does the rest.
 # Linux terminal bash
 # Using GitHub raw link 
 # Check if valid JSON
