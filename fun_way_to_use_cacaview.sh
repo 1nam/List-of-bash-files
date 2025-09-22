@@ -2,6 +2,10 @@
 # 🌟 Interactive Terminal Image Gallery with arrow keys, mini ASCII, emojis, voice, and proper viewing
 # simply use arrow keys to scroll through ascii images click enter on one image and view it on cacaview
 
+# optional if you wanna ask for a directory simple.
+# read -p "Directory: " D
+# DIR=~/$D
+
 DIR=~/Pictures
 
 # ANSI colors
